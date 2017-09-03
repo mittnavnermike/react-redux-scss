@@ -1,6 +1,6 @@
 /* global window */
 
-import { compose, createStore } from 'redux';
+import { createStore } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { createBrowserHistory } from 'history';
 
@@ -11,11 +11,11 @@ import rootReducer from './reducers/index';
 import app from './data/app';
 
 // Get state from localStorage if exist
-const localStorageOrder = JSON.parse(window.localStorage.getItem('app'));
+const localStorageApp = JSON.parse(window.localStorage.getItem('app'));
 
 // Create an object for the default data
 const defaultState = {
-    app: localStorageOrder || app,
+    app: localStorageApp || app,
 };
 
 // For Dev (redux dev tools)
