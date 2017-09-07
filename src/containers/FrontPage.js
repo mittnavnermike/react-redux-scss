@@ -5,17 +5,27 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as actionCreators from '../actions/actionCreators'
 
+// import LoaderHOC from '../HOC/Loader';
+
 class FrontPage extends Component {
     constructor() {
-        super()
-        autoBind(this)
+        super();
+        this.state = {
+            loading: [],
+        }
+        autoBind(this);
+    }
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({loading: [...Array(100)]});
+        }, 1000);
     }
     handleClick() {
         const { app, loggIn} = this.props;
         loggIn(!app.logged_in);
     }
     render() {
-        const { app } = this.props
+        const { app } = this.props;
         return (
             <div>
                 <h1>Frontpage</h1>

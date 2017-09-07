@@ -5,10 +5,11 @@ import { connect } from 'react-redux'
 import * as actionCreators from '../actions/actionCreators'
 
 const Header = props => {
+    const { app } = props
     return (
         <header className="header">
             <h1 className="logo">Logo</h1>
-            {props.app.logged_in && <p>Hei bruker</p>}
+            {props.app.logged_in && <p>Hei {app.users[0].firstName} {app.users[0].lastName}</p>}
         </header>
     )
 }
