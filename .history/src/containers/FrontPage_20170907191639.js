@@ -4,6 +4,9 @@ import { withRouter } from 'react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as actionCreators from '../actions/actionCreators'
+import { nameCombiner } from '../utilities/helpers'
+
+// import LoaderHOC from '../HOC/Loader'
 
 class FrontPage extends Component {
     constructor() {
@@ -12,6 +15,11 @@ class FrontPage extends Component {
             loading: []
         }
         autoBind(this)
+    }
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({ loading: [...Array(100)] })
+        }, 1000)
     }
     handleClick() {
         const { app, loggIn } = this.props
@@ -25,6 +33,15 @@ class FrontPage extends Component {
                 {!app.logged_in
                     ? <button onClick={this.handleClick}>Logg inn</button>
                     : <button onClick={this.handleClick}>Logg ut</button>}
+                <ul>
+                    {app.users.map(u => (
+                        <li key={nameCombiner(u.firstName, u.lastName)}>
+                            <a href={`/users/${nameCombiner(u.firstName, u.lastName)}`}>
+                                {`${u.firstName} ${u.lastName}`}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
             </div>
         )
     }

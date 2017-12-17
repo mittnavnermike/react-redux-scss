@@ -25,6 +25,15 @@ class FrontPage extends Component {
                 {!app.logged_in
                     ? <button onClick={this.handleClick}>Logg inn</button>
                     : <button onClick={this.handleClick}>Logg ut</button>}
+                <ul>
+                    {app.users.map(u => (
+                        <li key={nameCombiner(u.firstName, u.lastName)}>
+                            <a href={`/users/${nameCombiner(u.firstName, u.lastName)}`}>
+                                {`${u.firstName} ${u.lastName}`}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
             </div>
         )
     }

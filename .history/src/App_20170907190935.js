@@ -7,6 +7,8 @@ import store, { history } from './store'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import FrontPage from './containers/FrontPage'
+import AboutPage from './containers/AboutPage'
+import UserPage from './containers/UserPage'
 import NoMatchPage from './containers/NoMatchPage'
 
 export const routes = [
@@ -16,6 +18,20 @@ export const routes = [
         component: FrontPage,
         exact: true,
         show: true
+    },
+    {
+        name: 'About',
+        path: '/about',
+        component: AboutPage,
+        exact: false,
+        show: true
+    },
+    {
+        name: 'User',
+        path: '/users/:userId',
+        component: UserPage,
+        exact: false,
+        show: false
     },
     {
         name: '',

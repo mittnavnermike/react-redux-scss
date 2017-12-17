@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $sans;
+    font-size: 18px;
+    color: $c-main;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: currentColor;
+    text-decoration: none;
+    border-bottom: $border;
+
+    &:visited {
+        color: currentColor;
+    }
+
+    @include bp($sm) {
+        border: $border;
+        padding: $spacing $spacing--xlarge;
+        border-radius: 50%;
+        transition: $trans;
+        &:hover {
+            background-color: $c-main;
+            color: $c-background;
+        }
+    }
+}
+
+.small {
+    font-size: .8em;
+}
+
+.big {
+    font-size: 2em;
+}

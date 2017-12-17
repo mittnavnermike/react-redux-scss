@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as actionCreators from '../actions/actionCreators'
 import { routes } from '../App.js'
+import { getFullName } from '../utilities/helpers'
 
 const Header = props => {
     const { app } = props

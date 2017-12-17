@@ -20,7 +20,8 @@ export const routes = [
     {
         name: '',
         path: '/*',
-        component: NoMatchPage,
+        component: NoMatch,
+        Page,
         exact: false,
         show: false
     }

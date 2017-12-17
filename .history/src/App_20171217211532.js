@@ -21,6 +21,7 @@ export const routes = [
         name: '',
         path: '/*',
         component: NoMatchPage,
+        Page,
         exact: false,
         show: false
     }
